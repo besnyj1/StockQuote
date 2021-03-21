@@ -1,0 +1,30 @@
+# Imports the library to research the ticker price
+import yfinance as yf
+
+# Standard variable to create loops
+loop = True
+
+
+# Function that will look for the ticker's info
+def ticker_information():
+    # User types the ticker for the variable 'ticker'
+    ticker = input("\nChoose you ticker\n")
+
+    # If the user doesnt type anything, this loop will keep asking for a valid input
+    while ticker == "":
+            ticker = input("\nPlease, insert a valid ticker\n")
+    # Grabs the data from Yahoo API
+    data = yf.download(tickers=ticker, rounding=2, period='1m', interval='1m')
+
+    print(data)
+
+
+def main_function():
+    # The loop is for resetting the function so the user can search for various ticker
+    while loop:
+        ticker_information()
+
+
+# =-=-=-=-=-=-=-=-=-==-=-=-=-=-=- Program running sequence
+
+main_function()
